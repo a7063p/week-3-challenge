@@ -7,7 +7,8 @@ var randomChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p
                   1,2,3,4,5,6,7,8,9,0];
               
 var tempPass = [];
-var password= [];
+
+    
 
 
     function generatePassword () {
@@ -23,7 +24,6 @@ var password= [];
         generatePassword();
         }
     }
-
     
     function promptSpecialChar () {
         var specialChar = prompt("Please select special Characters for your password" + "\n(Example: &,#,@,!,^");   
@@ -36,91 +36,64 @@ var password= [];
             }
         }
     
-        function promptLowerChar () {
-            var lowerChar = prompt("Please select a lower case character for your password" + "\n(Example: a,b,c,d");
-            var allLowerChar = lowerChar.toLowerCase();
-            tempPass.push(allLowerChar);
-    
-            if(lowerChar === null) {
-                alert("Please enter a valid input");
-                promptLowerChar();
-            } else {
-                promptUpperChar();
-            }
+    function promptLowerChar () {
+        var lowerChar = prompt("Please select a lower case character for your password" + "\n(Example: a,b,c,d");
+        var allLowerChar = lowerChar.toLowerCase();
+        tempPass.push(allLowerChar);
+
+        if(lowerChar === null) {
+            alert("Please enter a valid input");
+            promptLowerChar();
+        } else {
+            promptUpperChar();
         }
-    
-        function promptUpperChar () {
-            var upperChar = prompt("Please select a upper case character for your password" + "\n(Example: A,B,C,D)");
-            var allUpperChar = upperChar.toUpperCase();
-            tempPass.push(allUpperChar);
-    
-            if(upperChar === null) {
-                alert("Please enter a valid input");
-            } else {
-                promptNumber();
-            }
+    }
+
+    function promptUpperChar () {
+        var upperChar = prompt("Please select a upper case character for your password" + "\n(Example: A,B,C,D)");
+        var allUpperChar = upperChar.toUpperCase();
+        tempPass.push(allUpperChar);
+
+        if(upperChar === null) {
+            alert("Please enter a valid input");
+        } else {
+            promptNumber();
         }
-    
-        function promptNumber () {
-            var numberChar = parseInt (prompt("Please select a number for your password" + "\n(Example: 1,2,3,4)"));
-            tempPass.push(numberChar);
-    
-            if(numberChar === null) {
-                alert("Please enter a valid input");
-            } else {
-                buildPassword();
-            }
+    }
+
+    function promptNumber () {
+        var numberChar = parseInt (prompt("Please select a number for your password" + "\n(Example: 1,2,3,4)"));
+        tempPass.push(numberChar);
+
+        if(numberChar === null) {
+            alert("Please enter a valid input");
+        } else {
+            buildPassword();
         }
+    }
+
+    function buildPassword () {
+        
+        var tempTotal = tempPass.length
     
-
-
-};
-
-generatePassword();
-
-
-
-
-
-
-
-// var specialChar = ["#", "%", "(", ",", "&"]
-
-
-
-
-//if(passLength > 8 || passLength < 128 ) {
-  //  
- //  }
-
-
-//Write Password to the #password input
-
-// for (i=0; i < passLength -3 ; i++) {
-//     var password = 
-//     randomChar[Math.floor(Math.random() * randomChar.length) ];
-    
-//     console.log(password);
-
-//function writePassword() {
-
-    
-    //var password = generatePassword();    
-
-    //var passwordText = document.querySelector("#password");
-
-    //passwordText.value = password;
-    
-//}
-
-
-//Add Event listener to generate button
-
-//generateBtn.addEventListener("click", writePassword);
+        for(var i=0; i < passLength - tempTotal; i++) {
+            var buildPass =
+            randomChar[Math.ceil(Math.random() * randomChar.length)];
+            tempPass.push(buildPass);   
+            }
+            console.log(tempPass);
+            stringPassword();
+        }
+    function stringPassword () { 
+        
+        var passTest = tempPass.join('');
+        console.log(passTest);            
+        }
+    }   
 
 
 
-
+ generateBtn.addEventListener('click', generatePassword);
 
 
 
