@@ -24,6 +24,56 @@ var password= [];
         }
     }
 
+    
+    function promptSpecialChar () {
+        var specialChar = prompt("Please select special Characters for your password" + "\n(Example: &,#,@,!,^");   
+        tempPass.push(specialChar);
+        if(specialChar === null) {
+            alert("Please enter a valid input ");
+            promptSpecialChar();
+            } else {
+                promptLowerChar();
+            }
+        }
+    
+        function promptLowerChar () {
+            var lowerChar = prompt("Please select a lower case character for your password" + "\n(Example: a,b,c,d");
+            var allLowerChar = lowerChar.toLowerCase();
+            tempPass.push(allLowerChar);
+    
+            if(lowerChar === null) {
+                alert("Please enter a valid input");
+                promptLowerChar();
+            } else {
+                promptUpperChar();
+            }
+        }
+    
+        function promptUpperChar () {
+            var upperChar = prompt("Please select a upper case character for your password" + "\n(Example: A,B,C,D)");
+            var allUpperChar = upperChar.toUpperCase();
+            tempPass.push(allUpperChar);
+    
+            if(upperChar === null) {
+                alert("Please enter a valid input");
+            } else {
+                promptNumber();
+            }
+        }
+    
+        function promptNumber () {
+            var numberChar = parseInt (prompt("Please select a number for your password" + "\n(Example: 1,2,3,4)"));
+            tempPass.push(numberChar);
+    
+            if(numberChar === null) {
+                alert("Please enter a valid input");
+            } else {
+                buildPassword();
+            }
+        }
+    
+
+
 };
 
 generatePassword();
