@@ -27,3 +27,12 @@ a strong password is generated to provide greater security.
 # The random password will be generated and displayed in the page/dotted border box
 #If the users requires or requests any new/additional passwords a completely new and randomly generated password will be displayed base on new user criteria 
 
+##Review
+
+* The URL of the deployed application.
+
+https://a7063p.github.io/week-3-challenge/
+
+* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+
+https://github.com/a7063p/week-3-challenge.git
