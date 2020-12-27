@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 var randomChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","r","x","w","z",
                   "A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
                   "!","#","$","%","&","*","+","-","/",":",";","<","=",">","?","@","[","]","^","_","{","}","|","~",
-                  1,2,3,4,5,6,7,8,9,0];
+                  1,2,3,4,5,6,7,8,9,];
               
 var tempPass = [];
 
@@ -12,18 +12,17 @@ var tempPass = [];
 
 
     function generatePassword () {
+        tempPass.length = 0;
+
         var passLength = parseInt (prompt ("Please select the length of Password would you like?" + "\n(8 characters to 128 characters)"));
-        lengthFunc();
 
-
-    function lengthFunc () {
         if(passLength >= 8 && passLength <= 128) {
         promptSpecialChar ();
         } else {
         alert("Password requires a minimum of 8 characters and a maximum of 128 characters");
         generatePassword();
         }
-    }
+    
     
     function promptSpecialChar () {
         var specialChar = prompt("Please select special Characters for your password" + "\n(Example: &,#,@,!,^");   
@@ -62,7 +61,7 @@ var tempPass = [];
     }
 
     function promptNumber () {
-        var numberChar = parseInt (prompt("Please select a number for your password" + "\n(Example: 1,2,3,4)"));
+        var numberChar = prompt("Please select a number for your password" + "\n(Example: 1,2,3,4)");
         tempPass.push(numberChar);
 
         if(numberChar === null) {
@@ -82,18 +81,22 @@ var tempPass = [];
             tempPass.push(buildPass);   
             }
             console.log(tempPass);
-            stringPassword();
+            joinPassword();
         }
-    function stringPassword () { 
-        
-        var passTest = tempPass.join('');
-        console.log(passTest);            
+    function joinPassword () { 
+        var password = tempPass.join('');
+        var passwordText= document.querySelector('#password');
+        passwordText.value = password;  
+           
         }
-    }   
+    }
+            
+      
+
+    
 
 
-
- generateBtn.addEventListener('click', generatePassword);
+generateBtn.addEventListener('click', generatePassword);
 
 
 
